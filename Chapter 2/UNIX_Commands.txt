@@ -1,0 +1,33 @@
+#10. Line count
+wc popular-names.txt
+
+#11. Replace tabs into spaces
+expand popular-names.txt
+expand -t 3 popular-names.txt #tab to 3 spaces
+
+#12. col1.txt from first column, col2.txt from the second column
+first column: cut -f1 popular-names.txt > col1.txt
+second column: cut -f2 popular-names.txt > col2.txt
+
+#13. Merging col1.txt and col2.txt
+paste -d '\t' col[1-2].txt
+
+#14 First N lines
+head -n 3 col[1-2].txt
+
+#15 Last N lines
+tail -n 3 col[1-2].txt
+
+#16 Split a file into N pieces
+split -n 5 col1.txt
+
+#17 Distinct strings in the first column
+cut -c 1 col1.txt | sort | uniq
+
+#18 Sort lines in descending order of the third column
+sort --sort=numeric -k 3 -r popular-names.txt 
+
+#19 Frequency of a string in the first column in descending order
+cut -f 1 popular-names.txt | sort | uniq -c | sort -rn 
+
+
